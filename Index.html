@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eisenhower Matrix Todo App with Sidebar</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar Section -->
+        <aside class="sidebar">
+            <h2>📥 Inbox</h2>
+            <div class="input-section">
+                <input type="text" id="sidebarTaskInput" placeholder="Add a new task">
+                <button onclick="addSidebarTask()">Add</button>
+            </div>
+            <ul id="sidebar-tasks" class="task-list" ondragover="handleDragOver(event)"
+                ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+            </ul>
+        </aside>
+
+        <!-- Main Matrix Section -->
+        <main class="main-content">
+            <div class="container">
+                <h1>Eisenhower Matrix</h1>
+                <div class="matrix">
+                    <!-- Urgent & Important Quadrant -->
+                    <div class="quadrant urgent-important">
+                        <h2>🔥 Now (within 2 hours)</h2>
+                        <ul id="urgent-important" class="task-list" ondragover="handleDragOver(event)"
+                            ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+                        </ul>
+                    </div>
+
+                    <!-- Not Urgent & Important Quadrant -->
+                    <div class="quadrant not-urgent-important">
+                        <h2>☀️ Today (within 8 hours)</h2>
+                        <ul id="not-urgent-important" class="task-list" ondragover="handleDragOver(event)"
+                            ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+                        </ul>
+                    </div>
+
+                    <!-- Urgent & Not Important Quadrant -->
+                    <div class="quadrant urgent-not-important">
+                        <h2>🗓️ This Week</h2>
+                        <ul id="urgent-not-important" class="task-list" ondragover="handleDragOver(event)"
+                            ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+                        </ul>
+                    </div>
+
+                    <!-- Not Urgent & Not Important Quadrant -->
+                    <div class="quadrant not-urgent-not-important">
+                        <h2>🎯 This Month</h2>
+                        <ul id="not-urgent-not-important" class="task-list" ondragover="handleDragOver(event)"
+                            ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add this after the matrix div -->
+            <div class="completed-section">
+                <div class="completed-header">
+                    <h2>✅ Completed Tasks</h2>
+                    <button id="clearCompleted" class="clear-btn" onclick="clearCompletedTasks()">Clear All</button>
+                </div>
+                <ul id="completed-tasks" class="task-list completed-list"></ul>
+            </div>
+        </main>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
